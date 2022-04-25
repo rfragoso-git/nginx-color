@@ -17,7 +17,7 @@ pipeline {
         stage('Docker Push'){
             steps {
                 script{
-                    docker.withRegistry('https://login.docker.com/u/login/identifier?', 'dockerhub' )
+                    docker.withRegistry('https://hub.docker.com/', 'dockerhub' )
                     dockerapp.push ('latest')
                     dockerapp.push ("${env.BUILD_ID}")
                 }
