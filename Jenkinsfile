@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+
+    }
 
     stages {
         stage('Checkout do código'){
@@ -9,9 +12,10 @@ pipeline {
         }
         stage('Building Image'){
             steps {
-                sh:'docker build -t rof1966/nginx-color:latest .'
+                script{
+                    sh:'docker build -t rof1966/nginx-color:latest .'
+                }
             }
         }
-
     }
 }
