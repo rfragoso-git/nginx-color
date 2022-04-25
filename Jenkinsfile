@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                     dockerapp = docker.build("rof1966/nginx-color:${env.BUILD_ID}"
-                                            ' .')
+                                            ' ./Dockefile')
                 }
             }
         }
