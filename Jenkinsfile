@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-
-    }
 
     stages {
         stage('Checkout do código'){
@@ -14,7 +11,7 @@ pipeline {
             steps {
                 script{
                     dockerapp = docker.build("rof1966/nginx-color:${env.BUILD_ID}"
-                                            ' ./Dockefile')
+                                            '-f ./Dockefile')
                 }
             }
         }
