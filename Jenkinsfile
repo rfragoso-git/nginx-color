@@ -13,7 +13,8 @@ pipeline {
         stage('Building Image'){
             steps {
                 script{
-                    sh:'docker build -t rof1966/nginx-color:latest .'
+                    dockerapp = docker.build("rof1966/nginx-color:${env.BUILD_ID}"
+                                            '-f ./Dockerfile')
                 }
             }
         }
