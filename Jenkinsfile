@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('First Stage'){
+        stage('Checkou do código'){
             steps {
-                sh 'echo "Primeira Pipeline"'
+                git url:'https://github.com/rfragoso-git/nginx-color.git', branc: 'master'
             }
         }
 
