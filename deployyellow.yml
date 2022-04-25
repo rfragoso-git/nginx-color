@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-nginx-yellow
+  namespace: nginx-yellow
+spec:
+  selector:
+    matchLabels:
+      app: nginx-color
+  template:
+    metadata:
+      labels:
+        app: nginx-color
+    spec:
+      containers:
+      - name: container-nginx-color
+        image: rof1966/nginx-color:yellow
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 80
